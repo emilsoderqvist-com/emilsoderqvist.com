@@ -1,0 +1,109 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+    /*font-family: 'Source Sans Pro', sans-serif;*/
+    font-family: "Titillium Web", sans-serif;
+}
+
+body {
+    color: white;
+    margin: 0;
+}
+
+#app {
+    height: 100vh;
+    overflow: hidden;    
+}
+
+#container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+}
+
+#line {
+    width: 600px;
+}
+
+#title {
+    font-size: 40px;
+    margin-block: 0;
+}
+
+#pronouns {
+    font-size: 20px;
+    margin-block: 0;
+}
+
+#about {
+    font-size: 18px;
+}
+
+#code {
+    font-size: 18px;
+    max-width: 600px;
+}
+
+/* Background */
+
+#icon-container {
+    background-color: rgba(40,48,61,255);
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#piano-icons {
+    background-image: url("./assets/piano-spaced.png");
+    background-size: 8%;
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    translate: -50% 0%;
+    transform: rotate(-45deg);
+    z-index: 1;
+    min-width: 4000px;
+    min-height: 4000px;
+    opacity: 0.10;
+    animation: pan 180s linear infinite;
+    background-repeat: repeat;
+}
+
+#warning {
+    display: none;
+}
+
+@keyframes pan {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 0%;
+    }
+  }
+
+/* Screen adjustments */
+
+/*@media screen and (max-width: 600px) {
+    #line {
+        max-width: 300px;
+    }
+
+    #title {
+        font-size: 40px;
+        max-width: 350px;
+    }
+
+    #about {
+        font-size: 20px;
+    }
+
+    #code {
+        font-size: 20px;
+    }
+}*/
+
+@media screen and (max-width: 600px) {
+}
