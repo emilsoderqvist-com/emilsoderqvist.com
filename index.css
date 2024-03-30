@@ -58,7 +58,7 @@ body {
 #piano-icons {
     background-image: url("./assets/piano-spaced.png");
     background-size: 8%;
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 0px;
     translate: -50% 0%;
@@ -69,10 +69,6 @@ body {
     opacity: 0.10;
     animation: pan 180s linear infinite;
     background-repeat: repeat;
-}
-
-#warning {
-    display: none;
 }
 
 @keyframes pan {
@@ -86,24 +82,16 @@ body {
 
 /* Screen adjustments */
 
-/*@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     #line {
-        max-width: 300px;
-    }
-
-    #title {
-        font-size: 40px;
         max-width: 350px;
     }
 
-    #about {
-        font-size: 20px;
+    #title {
+        max-width: 400px;
     }
 
     #code {
-        font-size: 20px;
+        max-width: 350px;
     }
-}*/
-
-@media screen and (max-width: 600px) {
 }
