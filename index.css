@@ -40,9 +40,10 @@ body {
     font-size: 18px;
 }
 
-#code {
+.paragraph {
     font-size: 18px;
     max-width: 600px;
+    text-decoration: none;
 }
 
 /* Background */
