@@ -11,18 +11,23 @@ body {
 
 #app {
     height: 100dvh;
-    overflow: hidden;    
+   
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 #container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
+    position: relative;
+    max-width: 600px;
+    padding: 20px;
+    z-index: 2;
+    border-radius: 10px;
 }
 
 #line {
-    width: 600px;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -42,28 +47,31 @@ body {
 
 .paragraph {
     font-size: 18px;
-    max-width: 600px;
     text-decoration: none;
 }
 
-/* Background */
+
 
 #icon-container {
     background-color: rgba(40,48,61,255);
     height: 100%;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
 }
 
 #piano-icons {
     background-image: url("./assets/piano-spaced.png");
     background-size: 8%;
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 0px;
     translate: -50% 0%;
     transform: rotate(-45deg);
-    z-index: 1;
     min-width: 4000px;
     min-height: 4000px;
     opacity: 0.10;
@@ -71,16 +79,16 @@ body {
     background-repeat: repeat;
 }
 
+
 @keyframes pan {
     0% {
-      background-position: 0% 0%;
+        background-position: 0% 0%;
     }
     100% {
-      background-position: 100% 0%;
+        background-position: 100% 0%;
     }
-  }
+}
 
-/* Screen adjustments */
 
 @media screen and (max-width: 600px) {
     #line {
@@ -94,5 +102,9 @@ body {
 
     #code {
         max-width: 350px;
+    }
+
+    #container {
+        max-width: 90%;
     }
 }
