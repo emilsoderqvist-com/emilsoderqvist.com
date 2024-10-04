@@ -23,22 +23,22 @@ body {
     max-width: 1600px;
     width: 100%;
     position: relative;
-    gap: 40px; /* Space between the two sides */
+    gap: 40px; 
 }
 
 .side-container {
-    flex: 1; /* Ensure both sides take up equal space */
-    min-height: 400px; /* Set a minimum height to prevent shrinking */
+    flex: 1; 
+    min-height: 400px; 
     padding: 20px;
     z-index: 2;
     border-radius: 10px;
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.5); /* Faded black background */
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
 #divider {
     width: 1px;
-    background-color: white; /* Divider color */
+    background-color: white; 
     height: 100%;
     position: absolute;
     top: 0;
@@ -115,27 +115,26 @@ body {
     }
 }
 
-/* Media query for phones or small screens */
 @media screen and (max-width: 1000px) {
     body {
-        overflow-x: hidden; /* Prevent horizontal overflow */
+        overflow-x: hidden; 
     }
 
     #content-wrapper {
-        flex-direction: column; /* Stack the containers vertically */
-        gap: 20px; /* Reduce the space between the two sides */
-        width: 100%; /* Ensure the wrapper takes full width */
-        max-width: 100%; /* Prevent it from exceeding the viewport width */
+        flex-direction: column; 
+        gap: 20px; 
+        width: 100%; 
+        max-width: 100%; 
     }
 
     #divider {
-        display: none; /* Hide the divider on smaller screens */
+        display: none; 
     }
 
     .side-container {
-        min-height: auto; /* Let the containers adjust height naturally */
-        width: 100%; /* Ensure containers take full width */
-        box-sizing: border-box; /* Include padding and borders in width calculations */
-        padding: 20px; /* Optional: ensure some internal spacing */
+        min-height: auto; 
+        width: 100%; 
+        box-sizing: border-box; 
+        padding: 20px; 
     }
 }
