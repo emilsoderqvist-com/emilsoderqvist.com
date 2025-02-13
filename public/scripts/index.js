@@ -14,7 +14,7 @@ const titles = [
 let increment = 0;
 
 function ChangeTitle() {
-    document.title = `Portfolio - ${titles[increment]}!`;
+    document.title = `Emil Söderqvist - ${titles[increment]}!`;
     increment = (increment + 1) % titles.length; // Automatically wraps around.
 }
 

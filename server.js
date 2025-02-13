@@ -16,8 +16,8 @@ app.use(favicon(path.join(__dirname, 'public', '/images/bracket.png')));
 
 // Home Page
 app.get("/", (req, res) => {
-    const left_content = fs.readFileSync("left-content.html", "utf8");
-    const right_content = fs.readFileSync("right-content.html");
+    const left_content = fs.readFileSync("content/left-content.html", "utf8");
+    const right_content = fs.readFileSync("content/right-content.html");
 
     res.render("index", {left_content, right_content});
 });

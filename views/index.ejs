@@ -11,32 +11,96 @@
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
-    <link rel="icon" type="image/x-icon" href="/assets/brackets-spaced.png">
-    <link rel="stylesheet" href="/css/index.css">
-    <title>Hello!</title>
-</head>
+    <link rel="icon" type="image/x-icon" href="/images/bracket.png">
+    <link rel="stylesheet" href="/css/new-index.css">
+    <script src="/scripts/index.js"></script>
+    <title>Emil Söderqvist - Hello!</title>
 
-<body>
-    <div id="app">
-        <div id="icon-container">
-            <div id="bracket-icons"></div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="name">
+                <a href="#introduction">Emil Söderqvist | Han/Honom</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#experience">Erfarenhet</a></li>
+                <li><a href="#portfolio">Portfölj</a></li>
+            </ul>
         </div>
-        <div id="content-wrapper">
-            <!-- Divider between containers -->
-            <div id="divider"></div>
+    </nav>
 
-            <!-- Left side content -->
-            <div id="left-container" class="side-container">
-                <%- left_content %>
+</head>
+<body>
+    <div class="site-container">
+        <div class="site-content">
+            <div id="introduction" class="section">
+                <div class="vertical-line"></div>
+                 <div>
+                    <h1>Introduktion</h1>
+                    <p>
+                        Programmering och programutveckling har varit ett av den största intressen jag haft så länge jag kan komma ihåg!
+                        Det började med att jag försökte skapa mods och banor till spel när jag var jätteliten och slutade med att bli
+                        mitt karriärsval. Bekvämast med C# och JavaScript men kan syntax till ett flertal språk till.
+                    </p>
+                    <div class="socials">
+                        <a target="_blank" href="https://github.com/Skuffies"><img src="/images/github-32x32.png" alt="GitHub Social Icon"></a>
+                        <a target="_blank" href="https://discordapp.com/users/327692124659384330"><img src="/images/discord-32x32.png" alt="Discord Social Icon"></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/emilsoderq/"><img src="/images/linkedin-32x32.png" alt="LinkedIn Social Picture"></a>
+                        <a target="mailto:contact@emilsoderqvist.com" href="mailto:contact@emilsoderqvist.com"><img src="/images/mail-32x32.png" alt="Mail Social Picture"></a>
+                    </div>
+                 </div>
+                 <div id="picture-div">
+                    <img src="/images/intro-picture.png" alt="Profilbild">
+                 </div>
             </div>
-
-            <!-- Right side content (duplicate) -->
-            <div id="right-container" class="side-container">
-                <%- right_content %>
-            </div>
+            <div id="experience" class="section">
+                <div class="vertical-line"></div>
+                <div>
+                   <h1>Erfarenhet</h1>
+                   <p>
+                    Här finns en översikt på den korta kariärr jag haft hittills.
+                   </p>
+                   <ul>
+                    <li>
+                        <h2>Hösten 2024 - Nuvarande</h2>
+                        <p class="job-title">Region Skåne | Skane.se</p>
+                        <p>Timanställd för programutveckling. Produkt som ej släppts.</p>
+                    </li>
+                    <li>
+                        <h2>Hösten 2024 - Nuvarande</h2>
+                        <p class="job-title">Emil Söderqvist | Emilsoderqvist.com</p>
+                        <p>Har startat en enskild firma för dataprogrammering.</p>
+                    </li>
+                    <li>
+                        <h2>Hösten 2024 - Nuvarande</h2>
+                        <p class="job-title">Hemkodat | Hemkodat.se</p>
+                        <p>Behovsanställd på <a target="_blank" href="https://www.hemkodat.se/">Hemkodat</a> där jag jobbar med att lära ut enkel Scratch-programmering och liknande för barn.</p>
+                    </li>
+                    <li>
+                        <h2>2021 - 2024</h2>
+                        <p class="job-title">Marcus Lindblad AB | SparaCash.se</p>
+                        <p>
+                            Låg bakom ett antal chattbottar (Discord), som kunde hämta hem data med Webscraping som kommando:n
+                            och hålla koll på unika checklistor för varje medlem.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>Hösten 2023</h2>
+                        <p class="job-title">Marcus Lindblad AB | Rabattkod.online</p>
+                        <p>
+                            Programmerade en back-end applikation som hämtade ned rabattkoder från en API och sedan lade upp dem
+                            på en WordPress hemsida med korrekt titel, länk, utgångsdatum etc...
+                        </p>
+                    </li>
+                   </ul>
+           </div>
+        </div>
+        <div id="portfolio" class="section">
+            <div class="vertical-line"></div>
+             <div>
+                <h1>Portfölj</h1>
+                <p>Under konstruktion.</p>
         </div>
     </div>
-
-    <script src="/scripts/index.js"></script>
 </body>
 </html>
