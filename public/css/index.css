@@ -206,12 +206,8 @@ a {
         font-size: 16px;
     }
 
-    .navbar-container a {
-        font-size: 18px;
-    }
-
-    .navbar-container ul li a {
-        font-size: 16px;
+    .navbar {
+        display: none;
     }
 
     .site-content {
