@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 // 404 Page
 app.get("/*", (req, res) => {
-    res.render("404");
+    res.redirect("/");
 });
 
 app.listen(PORT, () => {
