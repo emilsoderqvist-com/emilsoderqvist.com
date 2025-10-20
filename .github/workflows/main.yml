@@ -1,0 +1,12 @@
+name: Docker
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nexys-system/gh-actions-docker-node@v0.0.1
