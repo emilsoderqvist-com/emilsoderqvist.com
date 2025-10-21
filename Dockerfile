@@ -1,8 +1,28 @@
-# Container image that runs your code
-FROM alpine:3.10
+# Set the base image with the specified Node.js version
+ARG NODE_VERSION=22.4.1
+FROM node:${NODE_VERSION}-alpine
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY docker-entry.sh /docker-entry.sh
+# Set the environment variable for Node.js to run in production mode
+ENV NODE_ENV production
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/docker-entry.sh"]
+# Create and set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Install dependencies by leveraging Docker's caching
+# Use bind mounts to package.json and package-lock.json for faster builds
+RUN --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,source=package-lock.json,target=package-lock.json \
+    --mount=type=cache,target=/root/.npm \
+    npm ci --omit=dev
+
+# Switch to a non-root user for running the application
+USER node
+
+# Copy all the application source files into the container
+COPY . .
+
+# Expose port 3000 for the application
+EXPOSE 3000
+
+# Define the command to run the application
+CMD ["node", "server.js"]
