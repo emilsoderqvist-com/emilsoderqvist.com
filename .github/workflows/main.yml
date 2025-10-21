@@ -1,13 +1,39 @@
-name: Docker
+# .github/workflows/main.yml
 
+name: Node.js CI/CD Pipeline
+
+# Trigger the workflow on push or pull request events to the main branch
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: self-hosted
+
     steps:
-      - uses: nexys-system/gh-actions-docker-node@v0.0.1
+      # Step 1: Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Use Node.js version 18
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Lint and test the application
+      - name: Lint and Test
+        run: |
+          npm run lint
+          npm test
+
+      # Step 5: Build Docker image
+      - name: Build Docker Image
+        run: docker build -t node_emilsoderqvist.com .
