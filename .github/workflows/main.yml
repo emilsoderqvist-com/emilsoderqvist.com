@@ -33,9 +33,10 @@ jobs:
         run: docker build -t node_emilsoderqvist.com .
 
       # Step 5: Kill Old Docker image
-      - name: Kill Old Docker Image
-        run: docker stop node_emilsoderqvist.com && docker rm node_emilsoderqvist.com
+      - name: Prune Old Docker Images
+        run: docker prune -f
 
       # Step 6: Run New Docker image
       - name: Run New Docker Image
         run: docker run -d node_emilsoderqvist.com -p 3000:3000
+
