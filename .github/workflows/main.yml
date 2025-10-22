@@ -42,4 +42,4 @@ jobs:
 
       # Step 6: Run New Docker Image
       - name: Run New Docker Image
-        run: docker run -d -name node_emilsoderqvist.com -p 3000:3000 node_emilsoderqvist.com
+        run: docker run -d --name node_emilsoderqvist.com -p 3000:3000 node_emilsoderqvist.com
