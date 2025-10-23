@@ -30,11 +30,11 @@ jobs:
 
       # Step 4: Build Docker Image
       - name: Build Docker Image
-        run: docker build -t node_emilsoderqvist.com .
+        run: docker build -t ${{vars.CONTAINER_NAME}} .
 
       # Step 5: Kill Old Docker Container
       - name: Kill Old Docker Container
-        run: docker rm -f node_emilsoderqvist.com || true
+        run: docker rm -f ${{vars.CONTAINER_NAME}} || true
 
       # Step 5: Kill Old Docker Image
       - name: Prune Old Docker Images
@@ -42,4 +42,4 @@ jobs:
 
       # Step 6: Run New Docker Image
       - name: Run New Docker Image
-        run: docker run -d --name node_emilsoderqvist.com -p 3000:3000 node_emilsoderqvist.com
+        run: docker run -d --name ${{vars.CONTAINER_NAME}} -p 3000:3000 ${{vars.CONTAINER_NAME}}
