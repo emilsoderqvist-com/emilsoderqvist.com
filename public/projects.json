@@ -1,0 +1,21 @@
+[
+    {
+        "title": "\"The Protocol Tool\"",
+        "timeline": "2024 - Current",
+        "description": "A tool to help hospitals ensure high standards in their hygiene routines.<br>Used by Sweden's third largest hospital among others.",
+        "tags": ["JavaScript", "NodeJS", "Express", "MySQL", "EJS"]
+    },
+    {
+        "title": "SparaCash's Discord Bot",
+        "timeline": "2021 - 2024",
+        "description": "A Swedish chatbot to assist with moderation and give easy access to affiliate links and information.",
+        "tags": ["JavaScript", "NodeJS", "DiscordJS"]
+    },
+    {
+        "title": "Personal Website",
+        "timeline": "2024 - Current",
+        "description": "Underlying code for emilsoderqvist.com's portfolio website.",
+        "tags": ["JavaScript", "NodeJS", "Express", "EJS"],
+        "link": "https://github.com/emilsoderqvist-com/emilsoderqvist.com"
+    }
+]

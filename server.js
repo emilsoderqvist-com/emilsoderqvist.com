@@ -19,13 +19,11 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-// 404 Page
+// 404 Redirect
 app.get("/*", (req, res) => {
     res.redirect("/");
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on port: ${PORT}`);
+    console.log(`Running server on http://localhost:${PORT}`);
 })
-
-// Test Push to trigger Workflow.

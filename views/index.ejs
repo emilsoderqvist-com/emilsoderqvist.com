@@ -1,32 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Helloooo!">
-    <meta name="description" content="The personal website and portfolio of me, Emil Söderqvist! A list of some of the projects that I have worked on and what I am currently open to!">
-    <meta name="keywords" content="portfolio, development, programming, personal">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="English">
+    <title>Emilsoderqvist.com</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="/images/bracket.png">
-    <link rel="stylesheet" href="/css/index.css">
-    <script src="/scripts/index.js"></script>
-    <title>Emil Söderqvist - Hello!</title>
+    <script defer src="/scripts/scroller.js"></script>
+    <script defer src="/scripts/loadProjects.js"></script>
+    <script defer src="/scripts/title.js"></script>
 </head>
 <body>
-    <div id="main-container">
-        <div class="fadeInUp-animation" id="intro-container">
-            <h1>Hello, I'm Emil Söderqvist!</h1>
-            <p>Programming and software development have been some of my biggest interests for as long as I can remember! It started with me trying to create mods and levels for games at a very young age and ended up being my career choice. Most comfortable and proficient in C# and JavaScript but can understand and use most other languages as well.</p>
-            <div id="socials">
-                <a target="_blank" href="https://github.com/Skuffies"><img src="/images/github-32x32.png" alt="GitHub Social Icon"></a>
-                <a target="_blank" href="https://discordapp.com/users/327692124659384330"><img src="/images/discord-32x32.png" alt="Discord Social Icon"></a>
-                <a target="_blank" href="https://www.linkedin.com/in/emilsoderq/"><img src="/images/linkedin-32x32.png" alt="LinkedIn Social Picture"></a>
-                <a target="mailto:contact@emilsoderqvist.com" href="mailto:contact@emilsoderqvist.com"><img src="/images/mail-32x32.png" alt="Mail Social Picture"></a>
+    <div id="app">
+        <div class="row container">
+            <div class="column horizontal">
+                <h1 id="title">Hiya! I'm Emil Söderqvist</h1>
+                <p>
+                    Coding for the past 10 years of my life and always doing something new.
+                    Currently doing my final year in school for game development but I do all things tech!
+                    I'm a back-end developer mostly working with JavaScript or C# to help companies or individuals
+                    get a product they are satisfied with.
+                </p>
+                <div id="socials">
+                    <a target="_blank" href="https://github.com/Skuffies"><img src="/images/socials/github-32x32.png" alt="GitHub Social Icon"></a>
+                    <a target="_blank" href="https://discordapp.com/users/327692124659384330"><img src="/images/socials/discord-32x32.png" alt="Discord Social Icon"></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/emilsoderq/"><img src="/images/socials/linkedin-32x32.png" alt="LinkedIn Social Picture"></a>
+                    <a target="mailto:contact@emilsoderqvist.com" href="mailto:contact@emilsoderqvist.com"><img src="/images/socials/mail-32x32.png" alt="Mail Social Picture"></a>
+                </div>
+                <div class="long-divider"></div>
             </div>
+            <img id="profile-img" src="/images/profile.webp" alt="Profile Picture">
+        </div>
+        <div class="column container">
+            <h1>Technologies</h1>
+            <div class="vertical">
+                <div class="row nogap">
+                    <div class="small-divider blue"></div>
+                    <div class="scroller" speed="fast">
+                        <div class="scroller-inner">
+                            <img src="https://skillforge.com/wp-content/uploads/2020/10/javascript.png" alt="JavaScript">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1067px-Logo_C_sharp.svg.png" alt="C#">
+                            <img src="https://www.ovhcloud.com/sites/default/files/styles/large_screens_1x/public/2021-09/ECX-1909_Hero_MySQL_600x400%402x-1.png" alt="MySQL">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Unity_2021.svg/1200px-Unity_2021.svg.png" alt="Unity">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="NodeJS">
+                            <img src="https://cdn.worldvectorlogo.com/logos/docker-3.svg" alt="Docker">
+                        </div>
+                    </div>
+                    <div class="small-divider orange"></div>
+                </div>
+            </div>
+        </div>
+        <div class="column container">
+            <h1>Projects</h1>
+            <div id="project-list"></div>
         </div>
     </div>
 </body>
