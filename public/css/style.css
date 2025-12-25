@@ -20,6 +20,10 @@ body {
     justify-content: center;
 }
 
+#title {
+    text-decoration: underline;
+}
+
 #socials img {
   width: 30px;
 }
