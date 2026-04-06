@@ -19,6 +19,10 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
+app.get("/teknik", (req, res) => {
+    res.render("it-help");
+});
+
 // 404 Redirect
 app.get("/*", (req, res) => {
     res.redirect("/");
