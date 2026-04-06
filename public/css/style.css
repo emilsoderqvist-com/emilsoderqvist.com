@@ -206,6 +206,13 @@ p {
     font-size: 0.6rem;
 }
 
+.highlight {
+    text-decoration: underline;
+    color: orange;
+    font-weight: bold;
+    display: inline;
+}
+
 /* Animations */
 
 @keyframes scroll {
