@@ -23,6 +23,21 @@ app.get("/teknik", (req, res) => {
     res.render("it-help");
 });
 
+app.get("/tabg", (req, res) => {
+    res.render("tabg");
+});
+
+app.get("/api/tabg", (req, res) => {
+    let APPID = 823130;
+    let URL = "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid="
+
+    fetch(URL + APPID).then(res2 => {
+        res2.json().then(data => {
+            res.json(data["response"]["player_count"]);
+        })
+    })
+});
+
 // 404 Redirect
 app.get("/*", (req, res) => {
     res.redirect("/");
