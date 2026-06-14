@@ -49,15 +49,25 @@ li {
     height: 100dvh;
 }
 
+#app-width {
+    width: 450px;
+    height: auto;
+    justify-content: left;
+    align-items: left;
+}
+
+#intro {
+    justify-content: left;
+}
+
 #profile-img {
     aspect-ratio: 1;
-    height: 9rem;
+    height: 7rem;
     width: auto;
-    border-radius: 3.125rem;
+    border-radius: 2rem;
 }
 
 #title {
-    text-decoration: underline;
     font-weight: 500;
 }
 
@@ -94,7 +104,6 @@ li {
 
 #content {
     width: var(--app-width);
-    margin-left: 3.125rem;
     position: relative;
 }
 
@@ -118,7 +127,6 @@ li {
 #button-container {
     width: 100%;
     display: flex;
-    justify-content: center;
 }
 
 #call-to-action {
