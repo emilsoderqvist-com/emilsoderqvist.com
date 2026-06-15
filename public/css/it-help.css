@@ -50,7 +50,7 @@ li {
 }
 
 #app-width {
-    width: 450px;
+    width: 28rem;
     height: auto;
     justify-content: left;
     align-items: left;
@@ -144,25 +144,35 @@ li {
 }
 
 /* Media queries */
-
-/* Smaller Phones !*/
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 440px) {
     :root {
-        font-size: 15px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-height: 900px) and (min-width: 450px) {
+    :root {
+        font-size: 18px;
     }
 }
 
 /* iPad */
-@media only screen and (min-height: 1000px) {
+@media only screen and (min-height: 1115px) {
     :root {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
 /* 1080p Screens */
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1200px) {
     :root {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
