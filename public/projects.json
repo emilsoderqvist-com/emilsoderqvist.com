@@ -1,9 +1,21 @@
 [
     {
-        "title": "\"Protokollverkyget\"",
+        "title": "Protokollverkyget",
         "timeline": "2024 - Nuvarande",
-        "description": "Ett verktyg för att hjälpa sjukhus att säkerställa hög standard i sina hygienrutiner.<br>Används bland annat av Sveriges tredje största sjukhus.",
+        "description": "Ett verktyg för att hjälpa sjukhus att säkerställa hög standard i sina hygienrutiner. Används av Sveriges tredje största sjukhus.",
         "tags": ["JavaScript", "NodeJS", "Express", "MySQL", "EJS"]
+    },
+    {
+        "title": "Rabattkodshemsida",
+        "timeline": "2023 - 2024",
+        "description": "Back-end för att hämta rabattkoder från diverse API:er och automatiskt importera dem till en WordPress-hemsida.",
+        "tags": ["JavaScript", "NodeJS"]
+    },
+    {
+        "title": "Axelbotten",
+        "timeline": "Aug 2023",
+        "description": "En simpel administrativ chattbot för att lätt få översikt över medlemmars aktivitet.",
+        "tags": ["JavaScript", "NodeJS", "DiscordJS"]
     },
     {
         "title": "SparaCash Discord Bot",
@@ -14,7 +26,7 @@
     {
         "title": "Personlig webbplats",
         "timeline": "2024 - Nuvarande",
-        "description": "Underliggande kod för emilsoderqvist.coms portföljwebbplats.",
+        "description": "Koden för den här hemsidan.",
         "tags": ["JavaScript", "NodeJS", "Express", "EJS"],
         "link": "https://github.com/emilsoderqvist-com/emilsoderqvist.com"
     }

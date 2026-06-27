@@ -143,6 +143,28 @@ li {
     justify-content: center;
 }
 
+#swish-icon {
+    width: 3rem;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#app {
+    overflow: visible;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    background-color: rgb(43, 43, 43);
+    padding: 0.6rem;
+    border-radius: 0.25rem;
+}
+
 /* Media queries */
 @media only screen and (max-width: 440px) {
     :root {
