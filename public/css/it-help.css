@@ -54,6 +54,8 @@ li {
     height: auto;
     justify-content: left;
     align-items: left;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
 }
 
 #intro {
