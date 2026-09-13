@@ -63,7 +63,8 @@ app.post("/create-invoice", async (req, res) => {
             quantity: Number(quantity),
             name: req.body.article_name[i],
             priceExclVat: Number(req.body.priceExclVat[i]),
-            vatRate: Number(req.body.vatRate[i])
+            vatRate: Number(req.body.vatRate[i]),
+            rutRate: Number(req.body.rutRate[i]) || 0
         }));
 
         const data = {

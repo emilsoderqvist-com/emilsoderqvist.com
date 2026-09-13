@@ -68,7 +68,7 @@
 
         .article {
             display: grid;
-            grid-template-columns: 80px 1fr 140px 100px 40px;
+            grid-template-columns: 80px 250px 140px 100px 100px 40px;
             gap: 10px;
             align-items: end;
             margin-bottom: 10px;
@@ -425,6 +425,19 @@
                     >
                 </div>
 
+                <div class="field">
+                    <label>RUT %</label>
+                    <input
+                        type="number"
+                        name="rutRate[]"
+                        value="50"
+                        min="0"
+                        max="100"
+                        step="1"
+                        required
+                    >
+                </div>
+
                 <button
                     type="button"
                     class="remove"
@@ -483,6 +496,19 @@
                         name="vatRate[]"
                         value="25"
                         min="0"
+                        step="1"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label>RUT %</label>
+                    <input
+                        type="number"
+                        name="rutRate[]"
+                        value="0"
+                        min="0"
+                        max="100"
                         step="1"
                         required
                     >
@@ -621,6 +647,19 @@
                     name="vatRate[]"
                     value="25"
                     min="0"
+                    step="1"
+                    required
+                >
+            </div>
+
+            <div class="field">
+                <label>RUT %</label>
+                <input
+                    type="number"
+                    name="rutRate[]"
+                    value="0"
+                    min="0"
+                    max="100"
                     step="1"
                     required
                 >

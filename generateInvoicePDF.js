@@ -227,8 +227,22 @@ doc.font("Helvetica")
     .text("Godkänd för F-skatt", companyX, companyY + 140, {
         width: 215,
         align: "right"
-    });
+    })
 
+    if (data.type != "kvitto") {
+        doc.text("Betalningsvillkor", companyX, companyY + 180, {
+            width: 215,
+            align: "left"
+        })
+
+        .font("Helvetica")
+        .text("30 dagar", companyX, companyY + 190, {
+            width: 215,
+            align: "left"
+        })
+
+        .text("Inkludera ert personnumer som meddelande")
+    }
 
 // =========================
 // KUND - VÄNSTER OVANFÖR VARORNA
@@ -403,6 +417,7 @@ for (const column of Object.values(columns)) {
 
     let totalExclVat = 0;
     let totalVat = 0;
+    let totalRut = 0;
 
     const articleRows = [];
 
@@ -410,26 +425,34 @@ for (const column of Object.values(columns)) {
         const quantity = Number(article.quantity) || 0;
         const price = Number(article.priceExclVat) || 0;
         const vatRate = Number(article.vatRate) || 0;
+        const rutRate = Number(article.rutRate) || 0;
 
         const rowExclVat = quantity * price;
         const rowVat = rowExclVat * (vatRate / 100);
         const rowInclVat = rowExclVat + rowVat;
 
+        // RUT beräknas på arbetskostnaden inklusive moms
+        const rowRut = rowInclVat * (rutRate / 100);
+
         totalExclVat += rowExclVat;
         totalVat += rowVat;
+        totalRut += rowRut;
 
         articleRows.push({
             quantity,
             name: article.name || "",
             price,
             vatRate,
+            rutRate,
             rowExclVat,
             rowVat,
-            rowInclVat
+            rowInclVat,
+            rowRut
         });
     }
 
     const totalInclVat = totalExclVat + totalVat;
+    const amountToPay = totalInclVat - totalRut;
 
 
     /*
@@ -537,11 +560,9 @@ for (const column of Object.values(columns)) {
     }
 
 
-    /*
-     * ---------------------------------------------------------
-     * TOTALS
-     * ---------------------------------------------------------
-     */
+    // =========================
+    // TOTALS
+    // =========================
 
     rowY += 20;
 
@@ -585,11 +606,54 @@ for (const column of Object.values(columns)) {
         }
     );
 
+    rowY += 20;
+
+    text("Totalt inkl. moms", totalsX, rowY, {
+        size: 10,
+        width: 120,
+        align: "right"
+    });
+
+    text(
+        formatMoney(totalInclVat),
+        totalsValueX,
+        rowY,
+        {
+            size: 10,
+            width: 75,
+            align: "right"
+        }
+    );
+
+    // RUT-avdrag
+    if (totalRut > 0) {
+        rowY += 20;
+
+        text("RUT-avdrag", totalsX, rowY, {
+            size: 10,
+            font: "Helvetica-Bold",
+            width: 120,
+            align: "right"
+        });
+
+        text(
+            "-" + formatMoney(totalRut),
+            totalsValueX,
+            rowY,
+            {
+                size: 10,
+                font: "Helvetica-Bold",
+                width: 75,
+                align: "right"
+            }
+        );
+    }
+
     rowY += 25;
 
     line(totalsX, rowY - 5, pageWidth - 50, rowY - 5);
 
-    text("Totalt inkl. moms", totalsX, rowY + 5, {
+    text(data.type === "kvitto" ? "Summa" : "Att betala", totalsX, rowY + 5, {
         size: 13,
         font: "Helvetica-Bold",
         width: 120,
@@ -597,7 +661,7 @@ for (const column of Object.values(columns)) {
     });
 
     text(
-        formatMoney(totalInclVat),
+        formatMoney(amountToPay),
         totalsValueX,
         rowY + 5,
         {
@@ -608,6 +672,64 @@ for (const column of Object.values(columns)) {
         }
     );
 
+
+    if (totalRut > 0) {
+        rowY += 45;
+
+        text("RUT-avdrag", 50, rowY, {
+            size: 11,
+            font: "Helvetica-Bold"
+        });
+
+        rowY += 18;
+
+        text(
+            `Preliminär skattereduktion för RUT-arbete: ${formatMoney(totalRut)}`,
+            50,
+            rowY,
+            {
+                size: 9,
+                width: contentWidth
+            }
+        );
+
+        rowY += 15;
+
+        text(
+            `Arbetet utförs på: ${data.customer.address || ""}, ${data.customer.postalCode || ""} ${data.customer.city || ""}`,
+            50,
+            rowY,
+            {
+                size: 9,
+                width: contentWidth
+            }
+        );
+
+        rowY += 15;
+
+        text(
+            `Arbetsdatum: ${formatDate(data.date)}`,
+            50,
+            rowY,
+            {
+                size: 9,
+                width: contentWidth
+            }
+        );
+
+        rowY += 15;
+
+        text(
+            "Kunden ansvarar för att förutsättningarna för RUT-avdrag är uppfyllda. Skattereduktionen är preliminär och kan komma att justeras om Skatteverket inte medger hela avdraget.",
+            50,
+            rowY,
+            {
+                size: 8,
+                color: gray,
+                width: contentWidth
+            }
+        );
+    }
 
     /*
      * ---------------------------------------------------------
@@ -639,6 +761,8 @@ for (const column of Object.values(columns)) {
      */
 
     const footerY = doc.page.height - 70;
+    const footerSecondRowX = 50 + 220;
+    
 
     line(50, footerY - 10, pageWidth - 50, footerY - 10);
 
@@ -648,7 +772,8 @@ for (const column of Object.values(columns)) {
         footerY,
         {
             size: 8,
-            color: gray
+            color: gray,
+            font: "Helvetica-Bold"
         }
     );
 
@@ -665,6 +790,39 @@ for (const column of Object.values(columns)) {
     text(
         data.company?.website || "",
         50,
+        footerY + 24,
+        {
+            size: 8,
+            color: gray
+        }
+    );
+
+    /////
+
+        text(
+        "Betalningsinformation",
+        footerSecondRowX,
+        footerY,
+        {
+            size: 8,
+            color: gray,
+            font: "Helvetica-Bold"
+        }
+    );
+
+    text(
+        "Bankgiro: 714-5238",
+        footerSecondRowX,
+        footerY + 12,
+        {
+            size: 8,
+            color: gray
+        }
+    );
+
+    text(
+        "Swish: 1231743020",
+        footerSecondRowX,
         footerY + 24,
         {
             size: 8,
