@@ -672,6 +672,14 @@ for (const column of Object.values(columns)) {
         }
     );
 
+    text(
+        data.comment,
+        50,
+        rowY - 75,
+        {
+            width: 290,
+        }
+    )
 
     if (totalRut > 0) {
         rowY += 45;

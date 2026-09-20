@@ -56,7 +56,8 @@ app.post("/create-invoice", async (req, res) => {
             date,
             dueDate,
             company,
-            customer
+            customer,
+            comment
         } = req.body;
 
         const articles = req.body.quantity.map((quantity, i) => ({
@@ -72,6 +73,7 @@ app.post("/create-invoice", async (req, res) => {
             number,
             date,
             dueDate,
+            comment,
 
             company: {
                 name: req.body.company_name,
