@@ -5,6 +5,8 @@ FROM node:${NODE_VERSION}-alpine
 # Set the environment variable for Node.js to run in production mode
 ENV NODE_ENV production
 
+RUN mkdir -p /usr/src/receipts && chown -R node:node /usr/src/receipts
+
 # Create and set the working directory inside the container
 WORKDIR /usr/src/app
 
