@@ -31,8 +31,8 @@ app.get("/kontakt", (req, res) => {
     res.render("contact");
 });
 
-app.get("/rut-avdrag", (req, res) => {
-    res.render("rut-avdrag");    
+app.get("/vem", (req, res) => {
+    res.render("vem.ejs");    
 });
 
 app.get("/portfolio", (req, res) => {
@@ -100,26 +100,29 @@ app.post("/create-invoice", async (req, res) => {
             articles
         };
 
-        // Mappen där PDF:en ska sparas
-        const outputDir = path.join(__dirname, "..", "receipts");
+        const outputDir = path.join(__dirname, ".", "receipts");
 
-        // Skapa mappen om den inte finns
         await fs.promises.mkdir(outputDir, { recursive: true });
 
-        // VIKTIGT: detta är FILENS sökväg, inte mappens
         const filename = `${type.charAt(0).toUpperCase() + type.slice(1)}-${data.company.name}-${data.customer.id}-${date}.pdf`;
         const outputPath = path.join(outputDir, filename);
 
-        console.log("Output directory:", outputDir);
-        console.log("Output file:", outputPath);
-
-        // Skapa PDF
         await generateInvoicePDF(data, outputPath);
 
-        // Läs/skicka FILEN, inte mappen
-        res.download(outputPath, filename, (err) => {
+        res.setHeader("Content-Type", "application/pdf");
+        res.setHeader("Content-Disposition", `inline; filename="${filename}"`);
+
+        res.sendFile(outputPath, async (err) => {
             if (err) {
-                console.error("Download error:", err);
+                console.error("Send file error:", err);
+                return;
+            }
+
+            try {
+                await fs.promises.unlink(outputPath);
+                console.log("Deleted temporary PDF:", outputPath);
+            } catch (deleteError) {
+                console.error("Could not delete PDF:", deleteError);
             }
         });
 
