@@ -120,7 +120,6 @@ app.post("/create-invoice", async (req, res) => {
 
             try {
                 await fs.promises.unlink(outputPath);
-                console.log("Deleted temporary PDF:", outputPath);
             } catch (deleteError) {
                 console.error("Could not delete PDF:", deleteError);
             }
