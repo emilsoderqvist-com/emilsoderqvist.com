@@ -17,9 +17,6 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=cache,target=/root/.npm \
     npm ci --omit=dev
 
-# Switch to a non-root user for running the application
-USER node
-
 # Copy all the application source files into the container
 COPY . .
 
